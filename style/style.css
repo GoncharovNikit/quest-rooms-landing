@@ -309,6 +309,15 @@ button.submit-booking:hover {
 }
 
 @media (max-width: 550px) {
+  .additional-info-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .key-image {
+    margin-right: 0;
+  }
+  
   .booking-form form {
     width: 80%;
   }
@@ -328,5 +337,45 @@ button.submit-booking:hover {
 
   .contact-info-text {
     width: 90%;
+  }
+
+  header .header-top-section {
+    flex-direction: column;
+    row-gap: 44px;
+    text-align: center;
+  }
+
+  .header-menu {
+    flex-wrap: wrap;
+    row-gap: 12px;
+  }
+
+  .header-offer {
+    margin-top: 100px;
+    width: 100%;
+  }
+
+  .header-offer h1 {
+    font-size: 18pt;
+  }
+
+  .header-offer .offer-text {
+    font-size: 14pt;
+  }
+
+  .page-section {
+    padding: 10px;
+  }
+
+  header.page-section {
+    padding: 24px;
+  }
+
+  .text-block {
+    width: 90%;
+  }
+
+  .additional-info.page-section .offers-list {
+    row-gap: 54px;
   }
 }

@@ -55,6 +55,7 @@ if (isset($_GET["email"])) {
     </div>
 
     <div class="header-offer">
+      <?php if (!($_GET["booking-success"] ?? false)) : ?>
       <h3>Make your adventure</h3>
       <h1>
         This is where your dreams <br>
@@ -64,6 +65,10 @@ if (isset($_GET["email"])) {
         try first with 15% discount
       </div>
       <button>Book emotions</button>
+      <?php else: ?>
+      <h1>Thanks for booking!</h1>
+      <br>
+      <?php endif ?>
     </div>
   </header>
 
