@@ -28,49 +28,109 @@ if (isset($_GET["email"])) {
 
 <body>
 
-  <div class="background-marks"></div>
-
   <header class="page-section">
-    <div class="logo-block">
-      <img src="./assets/logo.png" />
+    <div class="header-back-img"></div>
+    <div class="header-dark-back"></div>
+    <div class="header-top-section">
+      <div class="logo-block">
+        Quest Rooms
+      </div>
+      <div class="header-menu">
+        <div class="menu-item item-offers">
+          Offers
+        </div>
+        <div class="menu-item item-about-quests">
+          About quests
+        </div>
+        <div class="menu-item item-booking">
+          Booking
+        </div>
+        <div class="menu-item item-about-us">
+          About us
+        </div>
+        <div class="menu-item item-contact-us">
+          Contact us
+        </div>
+      </div>
     </div>
-    <h2>World's best quest rooms</h2>
-    <div class="header-info">
-      <div class="info-item item-booking">Booking</div>
-      <div class="info-item item-about-us">About us</div>
-      <div class="info-item item-contact-info">Contact info</div>
+
+    <div class="header-offer">
+      <h3>Make your adventure</h3>
+      <h1>
+        This is where your dreams <br>
+        of adventure come true
+      </h1>
+      <div class="offer-text">
+        try first with 15% discount
+      </div>
+      <button>Book emotions</button>
     </div>
   </header>
 
-  <section class="page-section greeting-offer">
-    <div class="main-offer">
-      <?php
-      if ($_GET["booking-success"] ?? false) :
-      ?>
-        <h1>Thanks for your booking!</h1>
-      <?php
-      else :
-      ?>
-        <h1>unforgettable quest room?</h1>
-        <button>Book now</button>
-      <?php endif; ?>
+  <section class="page-section additional-info">
+    <h2>your future adventure</h2>
+    <h3>choose your story</h3>
+    <div class="offers-list">
+      <div class="offer-item">
+        <img src="./assets/qv3.png" class="fix-img-width" />
+        <h4>The Shawshank Redemption</h4>
+        <h5>
+          Become the hero of a cult film
+          in a quest format.
+        </h5>
+        <button class="learn-more">
+          Learn more
+        </button>
+      </div>
+      <div class="offer-item">
+        <img src="./assets/qv2.png" />
+        <h4>Jailbreak</h4>
+        <h5>
+          Try to get out of the prison cell.
+        </h5>
+        <button class="learn-more">
+          Learn more
+        </button>
+      </div>
+      <div class="offer-item">
+        <img src="./assets/qv1.jpg" class="fix-img-width" />
+        <h4>The Zombie Apocalypse</h4>
+        <h5>
+          Survive the zombie apocalypse
+          and save humanity.
+        </h5>
+        <button class="learn-more">
+          Learn more
+        </button>
+      </div>
     </div>
   </section>
 
-  <section class="page-section additional-info">
-    <h2>Most popular offers</h2>
-    <div class="offers-list">
-      <div class="offer-item">
-        <img src="./assets/qrpr4.jpg" />
-        <label>Solve together</label>
+  <section class="page-section quests-description">
+    <h2>learn more about quests</h2>
+    <h3>
+      Deep into the incredible world of your own quests
+    </h3>
+    <div class="additional-info-content">
+      <div class="key-image">
+        <div class="image-container">
+          🗝️
+        </div>
+        <div class="image-label">
+          Try yourself
+        </div>
       </div>
-      <div class="offer-item">
-        <img src="./assets/qrpr6.jpg" />
-        <label>Find a way</label>
+      <div class="text-block">
+        <h4>What awaits you?</h4>
+        <div class="text-block-content">
+          Go on exciting journeys where every step is a puzzle solution and every moment is an opportunity to make a choice.
+        </div>
       </div>
-      <div class="offer-item">
-        <img src="./assets/qrpr3.jpg" />
-        <label>To perfect time</label>
+      <div class="text-block">
+        <h4>How Does It Work?</h4>
+        <div class="text-block-content">
+          Just choose your quest, assemble your team, and start solving puzzles. Each victory will bring you to a new level of emotion.
+        </div>
       </div>
     </div>
   </section>
@@ -146,34 +206,7 @@ if (isset($_GET["email"])) {
     </div>
   </section>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", (e) => {
-      const scrollToBooking = () => {
-        document.querySelector("form.booking-form").scrollIntoView({
-          behavior: "smooth",
-          block: "center"
-        })
-        document.querySelector("input#email").focus()
-      }
-
-      const scrollToAboutUs = () => {
-        document.querySelector(".about-us-text").scrollIntoView({
-          behavior: "smooth"
-        })
-      }
-
-      const scrollToContactInfo = () => {
-        document.querySelector(".contact-info-text").scrollIntoView({
-          behavior: "smooth"
-        })
-      }
-
-      document.querySelector(".main-offer > button").addEventListener("click", scrollToBooking)
-      document.querySelector(".item-booking").addEventListener("click", scrollToBooking)
-      document.querySelector(".item-contact-info").addEventListener("click", scrollToContactInfo)
-      document.querySelector(".item-about-us").addEventListener("click", scrollToAboutUs)
-    })
-  </script>
+  <script src="./script/script.js" defer></script>
 </body>
 
 </html>

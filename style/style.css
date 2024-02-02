@@ -1,107 +1,153 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+div {
+  box-sizing: border-box;
+}
+
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 14px 12px;
-  row-gap: 28px;
+  padding: 0;
+  margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.background-marks {
-  background-image: url(../assets/que_back2.png);
-  position: fixed;
+header, .page-section {
+  width: 100%;
+  padding: 30px 50px;
+  box-sizing: border-box;
+
+}
+
+header {
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+
+}
+
+.header-dark-back, .header-back-img {
+  position: absolute;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  z-index: -100;
+  z-index: -130;
 }
 
-.page-section {
-  background-color: #ffffff;
-  width: 100%;
-  border-radius: 4px;
-  padding: 10px;
+.header-back-img {
+  background-repeat: no-repeat;
+  background-image: url(../assets/header_back.jpg);
+  background-size: cover;
+  z-index: -150;
+}
+
+.header-dark-back {
+  background-color: rgba(0, 0, 0, 0.78);
+}
+
+.page-section h2, h3 {
   box-sizing: border-box;
-  box-shadow: 1px 1px 4px;
-}
-
-.page-section h2 {
   text-transform: uppercase;
   text-align: center;
+  margin: 0;
 }
 
-header.page-section {
+h1, h2 {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 24pt;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+header .header-top-section {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  color: white;
+}
+
+.header-menu {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  padding: 0 32px;
+  column-gap: 28px;
+}
+
+header h1 {
+  color: white;
+}
+
+.menu-item {
   box-sizing: border-box;
-}
-
-header .header-info {
-  display: flex;
-  flex-direction: row;
-  width: 25%;
-  column-gap: 18px;
-  text-transform: uppercase;
-  flex-wrap: wrap;
-  row-gap: 8px;
-  justify-content: end;
-}
-
-.header-info .info-item:hover {
+  padding-bottom: 5px;
   cursor: pointer;
-  text-shadow: 0 0 2px;
+  height: 30px;
 }
 
-header .logo-block {
-  width: 25%;
+.menu-item:hover {
+  border-bottom: 3px solid #FF85B1;
 }
 
-header h2 {
-  flex-grow: 1;
-  text-align: center;
-}
-
-.greeting-offer.page-section {
-  text-transform: uppercase;
-}
-
-.main-offer {
+.header-offer {
   display: flex;
   flex-direction: column;
-  width: 60%;
-  margin: 0 auto;
-  display: flex;
   align-items: center;
-  padding: 0 0 28px 0;
+  margin-top: 170px;
+  row-gap: 30px;
+  width: 70%;
+  text-align: center;
+  margin-bottom: 70px;
 }
 
-.main-offer h1 {
-  font-size: 40px;
+.header-offer h3 {
+  font-size: 16pt;
+  color: #FF85B1;
+  font-weight: lighter;
 }
 
-.main-offer button {
-  font-size: 30px;
-  width: fit-content;
-  text-transform: uppercase;
-  padding: 14px 18px;
-  border-radius: 10px;
-  outline: none;
-  border: none;
+.header-offer .offer-text {
+  color: #A0B5BE;
+  font-size: 18pt;
+}
+
+button {
+  margin-top: 8px;
+  text-transform: inherit;
+  border: 3px solid #FF85B1;
+  color: #FF85B1;
+  border-radius: 12px;
+  background: none;
+  padding: 8px 12px;
+  font-size: 14pt;
   cursor: pointer;
-  background-color: darkred;
+}
+
+button:hover {
+  background-color: #FF85B1;
   color: whitesmoke;
-  font-weight: bold;
+  transition: 100ms all;
 }
 
-.main-offer button:hover {
-  background-color: rgb(231, 123, 0);
+section.page-section {
+  padding: 80px 50px;
 }
 
-.additional-info.page-section {
-  padding: 12px 24px 32px 24px;
+section.page-section h3 {
+  color: #729DB0;
+  margin-top: 28px;
+  font-weight: lighter;
 }
 
 .additional-info.page-section .offers-list {
@@ -127,11 +173,80 @@ header h2 {
   font-size: 20px;
 }
 
-.offer-item img {
-  border-radius: 10px;
-  height: 300px;
-  max-width: 100%;
+.offer-item h4 {
+  text-transform: uppercase;
+  font-weight: 200;
+  font-family: 'Courier New', Courier, monospace;
+  margin-bottom: 0;
 }
+
+.offer-item h5 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+  font-size: 18px;
+  margin-top: 12px;
+}
+
+.offer-item button {
+  width: 40%;
+  margin: 0 auto;
+  border-width: 4px;
+}
+
+.offer-item img {
+  border-radius: 4px;
+  height: 300px;
+  width: auto;
+  user-select: none;
+}
+
+.page-section.quests-description, .page-section.about-us {
+  background-color: #F1F0E8;
+}
+
+.additional-info-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: start;
+  margin-top: 78px;
+  column-gap: 40px;
+}
+
+.key-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 34px;
+  margin-right: 72px;
+}
+
+.image-label {
+  text-transform: uppercase;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 24px;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+}
+
+.image-container {
+  font-size: 88px;
+  background-color: #D9D9D9;
+  padding: 32px;
+  border-radius: 50%;
+}
+
+.text-block {
+  padding-top: 10px;
+  width: 18%;
+  font-size: 18px;
+}
+
+.text-block h4 {
+  color: #FF85B1;
+  font-size: 22px;
+}
+
 
 .booking-form form {
   display: flex;
@@ -156,8 +271,8 @@ header h2 {
   font-size: 20px;
   outline: none;
   padding: 10px 12px;
-  border-radius: 6px;
-  border: 1px solid gray;
+  border-radius: 20px;
+  border: 3px solid #FF85B1;
 }
 
 .form-item label {
@@ -166,16 +281,19 @@ header h2 {
 }
 
 button.submit-booking {
-  width: 30%;
-  font-size: 22px;
-  padding: 8px 0;
+  text-transform: uppercase;
+  width: 40%;
+  font-size: 18px;
+  padding: 16px 22px;
   cursor: pointer;
-  border-radius: 8px;
-  border: 1px solid gray;
+  border-radius: 20px;
+  border: none;
+  background-color: #729DB0;
+  color: white;
 }
 
 button.submit-booking:hover {
-  background-color: antiquewhite;
+  background-color: #457386;
 }
 
 .about-us-text {
