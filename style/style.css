@@ -200,7 +200,7 @@ section.page-section h3 {
   user-select: none;
 }
 
-.page-section.quests-description, .page-section.about-us {
+.page-section.quests-description, .page-section.about-us, .page-section.contact-info {
   background-color: #F1F0E8;
 }
 
@@ -301,6 +301,130 @@ button.submit-booking:hover {
   margin: 40px auto 30px auto;
   width: 50%;
 }
+
+.about-us-text ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 24px;
+  border: 2px solid #FF85B1;
+  border-radius: 26px;
+  list-style: none;
+  column-gap: 30px;
+  font-size: 19px;
+}
+
+.about-us-text .about-us-desc-header {
+  color: #FF85B1;
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-align: left;
+  margin-top: 0;
+}
+
+.about-us-text .about-us-bottom-header {
+  margin-top: 52px;
+}
+
+
+/* REVIEWS */
+
+.reviews-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 370px;
+  width: 50%;
+  margin: 70px auto 0 auto;
+  column-gap: 36px;
+}
+
+.reviews-content .review-messages {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  row-gap: 28px;
+  height: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  padding-right: 24px;
+  border-right: 2px solid #FF85B1;
+}
+
+.review-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  column-gap: 32px;
+  height: fit-content;
+}
+.review-wrapper .user-avatar {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  row-gap: 8px;
+  width: 20%;
+}
+.review-wrapper .review-text {
+  width: 80%;
+  background-color: #FF85B1;
+  color: white;
+  border-radius: 20px;
+  padding: 14px;
+  height: fit-content;
+}
+.review-wrapper .avatar-img {
+  border-radius: 50%;
+  height: 52px;
+  width: 52px;
+  background-color: #ffcbde;
+}
+.review-wrapper .avatar-title {
+  text-align: center;
+}
+
+.reviews-content .review-form {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  row-gap: 18px;
+  height: 100%;
+  padding-top: 52px;
+}
+.review-form .review-form-header {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+.review-form input {
+  border: 2px solid darkcyan;
+  border-radius: 12px;
+  padding: 8px;
+  font-size: 18px;
+  outline: none;
+  width: 100%;
+}
+.review-form button {
+  width: 42%;
+  background-color: darkcyan;
+  color: white;
+  border: none;
+  text-transform: uppercase;
+  border: 2px solid white;
+  font-size: 16px;
+}
+.review-form button:hover {
+  background-color: white;
+  color: darkcyan;
+  border: 2px solid darkcyan;
+}
+
+/* END REVIEWS */
+
+
 
 .contact-info-text {
   font-size: 20px;

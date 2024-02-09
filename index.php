@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(E_ERROR);
+
 if (isset($_GET["email"])) {
   $env = parse_ini_file(".env");
   $botToken = $env["TG_API_KEY"];
@@ -12,6 +14,14 @@ if (isset($_GET["email"])) {
   header("Location: " . "/?booking-success=true");
   exit;
 }
+
+if (isset($_GET["name"]) && isset($_GET["review-message"])) {
+  file_put_contents("./submitted-reviews", $_GET["name"] . "|#|" . $_GET["review-message"] . PHP_EOL, FILE_APPEND);
+  header("Location: /?review-submitted=true");
+  exit;
+}
+
+$currentReviews = array_filter(explode(PHP_EOL, file_get_contents("./submitted-reviews")) ?? []);
 
 ?>
 
@@ -55,20 +65,23 @@ if (isset($_GET["email"])) {
     </div>
 
     <div class="header-offer">
-      <?php if (!($_GET["booking-success"] ?? false)) : ?>
-      <h3>Make your adventure</h3>
-      <h1>
-        This is where your dreams <br>
-        of adventure come true
-      </h1>
-      <div class="offer-text">
-        try first with 15% discount
-      </div>
-      <button>Book emotions</button>
-      <?php else: ?>
-      <h1>Thanks for booking!</h1>
-      <br>
-      <?php endif ?>
+      <?php if ($_GET["booking-success"] ?? false) : ?>
+        <h1>Thanks for booking!</h1>
+        <br>
+      <?php elseif ($_GET["review-submitted"] ?? false) : ?>
+        <h1>Thanks for your review!</h1>
+        <br>
+      <?php else : ?>
+        <h3>Make your adventure</h3>
+        <h1>
+          This is where your dreams <br>
+          of adventure come true
+        </h1>
+        <div class="offer-text">
+          try first with 15% discount
+        </div>
+        <button>Book emotions</button>
+      <?php endif; ?>
     </div>
   </header>
 
@@ -84,7 +97,7 @@ if (isset($_GET["email"])) {
           in a quest format.
         </h5>
         <button class="learn-more">
-          Learn more
+          599 UAH
         </button>
       </div>
       <div class="offer-item">
@@ -94,7 +107,7 @@ if (isset($_GET["email"])) {
           Try to get out of the prison cell.
         </h5>
         <button class="learn-more">
-          Learn more
+          799 UAH
         </button>
       </div>
       <div class="offer-item">
@@ -105,7 +118,7 @@ if (isset($_GET["email"])) {
           and save humanity.
         </h5>
         <button class="learn-more">
-          Learn more
+          699 UAH
         </button>
       </div>
     </div>
@@ -173,16 +186,47 @@ if (isset($_GET["email"])) {
       <p>
       <ul>
         <li>
-          <b>Immersive Storytelling:</b> Our escape rooms are not just puzzles; they are narratives waiting to unfold. Engage with captivating stories that evolve as you progress through the challenges.
+          <div class="about-us-desc-header">Immersive Storytelling</div>
+          <div>Go on exciting journeys where every step is a puzzle solution and every moment is an opportunity to make a choice.</div>
         </li>
         <li>
-          <b>Innovative Puzzles:</b> Prepare to be mentally stimulated by a diverse range of puzzles that will test your logical thinking, observational skills, and ability to think outside the box.
+          <div class="about-us-desc-header">Innovative Puzzles</div>
+          <div>Just choose your quest, assemble your team, and start solving puzzles. Each victory will bring you to a new level of emotion.</div>
         </li>
       </ul>
       </p>
       <p>
         Embark on a journey with [Company Name] and experience the thrill of escaping reality. Whether you're a group of friends, family, or coworkers, we invite you to unlock the mysteries within our walls and create lasting memories. Are you ready for the challenge?
       </p>
+      <h3 class="about-us-bottom-header">Are you ready for the challenge?</h3>
+    </div>
+  </section>
+
+  <section class="page-section ">
+    <h2>Reviews of satisfied heroes</h2>
+    <h3>What are our heroes say</h3>
+    <div class="reviews-content">
+      <div class="review-messages">
+        <?php foreach ($currentReviews as $review) :
+          $data = explode("|#|", $review)
+        ?>
+          <div class="review-wrapper">
+            <div class="user-avatar">
+              <div class="avatar-img"></div>
+              <div class="avatar-title"><?= $data[0] ?></div>
+            </div>
+            <div class="review-text">
+              <?= $data[1] ?>
+            </div>
+          </div>
+        <?php endforeach ?>
+      </div>
+      <form class="review-form">
+        <h3 class="review-form-header">Want to leave review?</h3>
+        <input type="text" name="name" class="input-name" placeholder="Your name.." required>
+        <input type="text" name="review-message" class="input-message" placeholder="Your message.." required>
+        <button type="submit" class="submit-review">Submit</button>
+      </form>
     </div>
   </section>
 
